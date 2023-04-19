@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import MemoForm from './MemoForm';
 import supabase from '../supabaseClient';
+import { useNavigate } from 'react-router-dom';
+
 
 const MemoItem = ({ memo, fetchMemos }) => {
 
-    const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
     const { error } = await supabase.from('aimo').delete().match({ id: memo.id });
@@ -16,8 +19,13 @@ const MemoItem = ({ memo, fetchMemos }) => {
     }
   };
 
+  // const handleMemoClick = () => {
+  //   navigate(`/memos/${memo.id}`);
+  // };
+
   return (
-    <div>
+
+    <div className="memo-item">
       <p>{memo.content}</p>
       {isEditing ? (
         <MemoForm memo={memo} fetchMemos={fetchMemos} setIsEditing={setIsEditing} />
@@ -26,6 +34,7 @@ const MemoItem = ({ memo, fetchMemos }) => {
       )}
       <button onClick={handleDelete}>삭제</button>
     </div>
+
   );
 };
 

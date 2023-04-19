@@ -39,7 +39,7 @@ const MemoForm = ({ memo, fetchMemos, setIsEditing }) => {
   return (
     <form onSubmit={handleSubmit}>
       <textarea
-        placeholder="내용"
+        placeholder="Record your ideas"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
