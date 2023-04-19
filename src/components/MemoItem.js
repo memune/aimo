@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MemoForm from './MemoForm';
 import supabase from '../supabaseClient';
 
 const MemoItem = ({ memo, fetchMemos }) => {
+
+    const [isEditing, setIsEditing] = useState(false);
+
   const handleDelete = async () => {
     const { error } = await supabase.from('aimo').delete().match({ id: memo.id });
 
@@ -15,9 +18,12 @@ const MemoItem = ({ memo, fetchMemos }) => {
 
   return (
     <div>
-      <h2>{memo.title}</h2>
       <p>{memo.content}</p>
-      <MemoForm memo={memo} fetchMemos={fetchMemos} />
+      {isEditing ? (
+        <MemoForm memo={memo} fetchMemos={fetchMemos} setIsEditing={setIsEditing} />
+      ) : (
+        <button onClick={() => setIsEditing(true)}>수정</button>
+      )}
       <button onClick={handleDelete}>삭제</button>
     </div>
   );

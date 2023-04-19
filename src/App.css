@@ -1,38 +1,111 @@
+
+.input-area {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.list-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  padding-top: 1rem;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1A2D30; /* 배경색 추가 */
+  color: #E5DED4; /* 글자색 추가 */
+}
+
 .App {
   text-align: center;
+  margin: 0 auto;
+  padding: 5rem;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 1rem;
+  text-align: left;
+  position: fixed; /* 위치를 고정 */
+  top: 0; /* 상단 여백 제거 */
+  left: 0; /* 왼쪽 여백 제거 */
+  z-index: 10; /* z-index 설정 */
+  background-color: #1A2D30; /* 배경색 추가 */
+  color: #E5DED4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #E5DED4; /* 글자색 추가 */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+input[type='text'],
+textarea {
+  font-size: 5rem; /* 기존 font-size를 증가시켜 텍스트를 크게 만듭니다. */
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%; /* textarea의 높이를 화면 높이에 맞게 조절합니다. */
+  box-sizing: border-box;
+  outline: none;
+  resize: none; /* textarea의 크기를 조절하지 못하게 설정합니다. */
+  background-color: transparent;
+  color: #E5DED4;
+  overflow: hidden;
+  height: calc(100vh - 10rem);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type='text']:focus,
+textarea:focus {
+  border-color: #0077cc;
+}
+
+button {
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  color: #6C6965; /* 글자색 변경 */
+  background-color: #E5DED4; /* 배경색 변경 */
+  cursor: pointer;
+  outline: none;
+  opacity: 0.4; /* 투명도 추가 */
+}
+
+button:hover {
+  background-color: #B0E7EF; /* 마우스 오버 시 배경색 변경 */
+}
+
+button:active {
+  background-color: #89C6D4; /* 마우스 클릭 시 배경색 변경 */
+}
+
+button[type='submit'] {
+  /* 기존 코드 생략 */
+  bottom: 1rem; /* 화면 아래쪽에 1rem 여백을 두고 배치 */
+  width: 200px; /* 버튼의 너비를 자동으로 설정 */
+  left: 50%;
+  margin-top: 0; /* 마진 제거 */
+ 
 }

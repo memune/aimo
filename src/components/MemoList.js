@@ -23,11 +23,18 @@ const MemoList = () => {
 
   return (
     <div>
-      <h1>메모 목록</h1>
-      <MemoForm fetchMemos={fetchMemos} />
-      {memos.map((memo) => (
-        <MemoItem key={memo.id} memo={memo} fetchMemos={fetchMemos} />
-      ))}
+      <h1>TARAE</h1>
+      
+      <div className="input-area">
+        <MemoForm fetchMemos={fetchMemos} />
+      </div>
+
+      <div className="list-area">
+        {memos.map((memo) => (
+          <MemoItem key={memo.id} memo={memo} fetchMemos={fetchMemos} />
+        ))}
+      </div>
+
     </div>
   );
 };
